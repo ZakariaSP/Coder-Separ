@@ -44,7 +44,29 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <script src="https://zakariasp.github.io/Coder-Separ/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
 
 
-
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<style>
+	#toTop{
+  
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: fixed;
+  right:2%;
+  top: 95%;
+  /* left: 98%;
+  top: 80%; */
+  padding: 0 4px;
+  z-index:999 ;
+  transform: translate(-2%,-98%);
+  /* margin-top: 16px; */
+  display: none;
+}
+#toTop:hover{
+  color: rgba(8, 8, 32, 0.921) !important; 
+}
+</style>
 
 
 
@@ -636,6 +658,10 @@ to my website.</h1>		</div>
 					</div>
 		</div>
 							</div>
+						<!--scrollTop button-->
+							<button type="button" id="toTop" class="btn btn-info text-center" style="background-color: #3F907FD4 ;">
+								<i class="fas fa-angle-up" style="font-size: 20px;"></i>
+							</button>
 		</section>
 							</div>
 		
@@ -808,7 +834,22 @@ to my website.</h1>		</div>
 							</div>
 		</div>	</div>
 <link rel="stylesheet" id="e-animations-css" href="https://zakariasp.github.io/Coder-Separ/wp-content/plugins/elementor/assets/lib/animations/animations.min.css" media="all">
-<script id="astra-theme-js-js-extra">
+<script>
+	var pxShow = 600; // height on which the button will show
+	var scrollSpeed = 2000; // how slow / fast you want the button to scroll to top.
+	$(window).scroll(function(){
+	 if($(window).scrollTop() >= pxShow){
+		$("#toTop").show();
+	 } else {
+		$("#toTop").hide();
+	 }
+	});
+	$('#toTop').on('click', function(){
+	 $('html, body').animate({scrollTop:0}, scrollSpeed);
+	 return false;
+	});
+</script>
+	<script id="astra-theme-js-js-extra">
 var astra = {"break_point":"921","isRtl":"","is_scroll_to_id":"","is_scroll_to_top":"","is_header_footer_builder_active":"1"};
 </script>
 <script src="https://zakariasp.github.io/Coder-Separ/wp-content/themes/astra/assets/js/minified/frontend.min.js" id="astra-theme-js-js"></script>
